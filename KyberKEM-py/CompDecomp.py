@@ -5,10 +5,7 @@ from utility import round_up
 
 def compress(x,d,q):
     """
-    Decompress the polynomial by decompressing each coefficent
-    NOTE: This as compression is lossy, we have
-    x' = decompress(compress(x)), which x' != x, but is 
-    close in magnitude.
+    
     """
     compress_mod = 2**d
     compress_float = compress_mod/q
@@ -24,6 +21,6 @@ def decompress(x,d,q):
     decompress_float = q/2**d
     return (decompress_float*x)
 
-def encode():
+# def encode():
 
-def decode():
+# def decode():
