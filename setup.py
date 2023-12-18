@@ -8,6 +8,7 @@ setup(
     author='Subhajit Biswas & Rohan Kalra',
     install_requires=[
         'numpy',
+        'sympy',
     ],
     setup_requires=['pytest-runner'],
     tests_require=['pytest==7.4.3'],
