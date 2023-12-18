@@ -78,26 +78,27 @@ f = np.zeros(n + 1)
 f[0] = 1
 f[n] = 1
 
-a = np.random.randint(0, q, n)
+# a = np.random.randint(0, q, n)
 
-b = np.random.randint(0, q, n)
+# b = np.random.randint(0, q, n)
 
-p = np.remainder(np.polydiv(np.polymul(a[::-1], b[::-1]), f)[1], q).astype(int)[::-1]
+# p = np.remainder(np.polydiv(np.polymul(a[::-1], b[::-1]), f)[1], q).astype(int)[::-1]
 
-print(p)
+# print(p)
+def multiply(a,b):
+    a = np.array([montgomery_reduce(x * rr) for x in a])
 
-a = np.array([montgomery_reduce(x * rr) for x in a])
+    b = np.array([montgomery_reduce(x * rr) for x in b])
 
-b = np.array([montgomery_reduce(x * rr) for x in b])
+    ntt(a)
+    ntt(b)
+    c = np.array([fqmul(x, y) for (x, y) in zip(a, b)])
 
-ntt(a)
-ntt(b)
-c = np.array([fqmul(x, y) for (x, y) in zip(a, b)])
+    inv_ntt(c)
 
-inv_ntt(c)
+    c = np.array([montgomery_reduce(x) for x in c])
 
-c = np.array([montgomery_reduce(x) for x in c])
+        # print(c)
+    return c
 
-print(c)
-
-print(np.array_equal(c, p))
+# print(np.array_equal(c, p))
