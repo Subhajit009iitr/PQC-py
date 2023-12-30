@@ -32,6 +32,9 @@ def xor_bytes(a, b):
     return bytes(a^b for a,b in zip(a,b))
 
 def modular_reduction(r,a,b):
+    """
+    Modulo of r with respect to a  
+    """
     if(b):
         return r%a
     else:
