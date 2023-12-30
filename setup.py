@@ -9,6 +9,7 @@ setup(
     install_requires=[
         'numpy',
         'sympy',
+        'cryptography',
     ],
     setup_requires=['pytest-runner'],
     tests_require=['pytest==7.4.3'],
